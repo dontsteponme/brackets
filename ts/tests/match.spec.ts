@@ -77,4 +77,15 @@ describe('A Pending Match', () => {
 
     expect(match.isBye).toEqual(true);
   });
+
+  it('should handle one match', () => {
+    let match0 = new Match();
+    match0.id = 'best';
+    match0.teams = [team, team2];
+    (match as PendingMatch).pendingMatches = [match0];
+
+    expect(match.teams.length).toEqual(2);
+    expect(match.isBye).toEqual(true);
+
+  });
 });

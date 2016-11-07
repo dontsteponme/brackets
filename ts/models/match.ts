@@ -89,7 +89,7 @@ export class PendingMatch extends Eventer implements IMatch {
         teams.push(match1.victor);
       }
       else {
-        teams.push(new PendingTeam(match1, match1.gameType));
+        teams.push(new PendingTeam(match1, match1 ? match1.gameType : this.gameType));
       }
       return teams;
     }
