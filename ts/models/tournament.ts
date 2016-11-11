@@ -65,7 +65,12 @@ export default class Tournament implements ITournament {
     let col = this.bracket[path[0] + 1];
     let match: IMatch;
     if (col) {
-      match = col[Math.floor(path[1] / 2)];
+      let row = path[1];
+      let idx = Math.floor(row / 2);
+      match = col[idx];
+      if (idx < col.length - 1 && row > 0 && match.isBye) {
+        match = col[Math.floor(row / 2) + 1];
+      }
     }
     return match;
   }
